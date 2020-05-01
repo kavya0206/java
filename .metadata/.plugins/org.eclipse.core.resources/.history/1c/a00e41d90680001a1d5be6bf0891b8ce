@@ -1,0 +1,71 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class SelectionSort {
+private ArrayList<Integer> num_sort=new ArrayList<>();
+
+public SelectionSort(ArrayList<Integer> userlist) {
+    this.num_sort=userlist;
+    sort_select();
+
+
+}
+
+public void sort_select() {
+    //outer for loop to pick one element at a time
+    //e.g if list is 20,12,3,4,5,6,98----this loop will first pick 20
+    for(int i=0;i<this.num_sort.size();i++) {
+        //assign that element as minimum
+        //in our e.g 20 will be assigned min in first iteration
+        int min=this.num_sort.get(i);
+        int min_index=i;
+        //go over the rest of the list and compare minimum by rest of list. if number smaller than min is found, then it is assigned as new min
+        //so go over list starting from 12 and comparing 20 with each of them and finding the new min, in this case it will be  3
+        for(int j=i+1;j<this.num_sort.size();j++) {
+            if(this.num_sort.get(j)<min) {
+                min=this.num_sort.get(j);
+                min_index=j;
+
+            }
+        }
+        if(i!=min_index) {
+           exchange(i,min_index);
+        }
+    }
+    System.out.println("Sorted entered are : ");
+    for(int x:this.num_sort) {
+        System.out.print(x+" ");
+    }
+}
+
+
+// exchange the element at ith position with min
+public void exchange(int current_elem,int new_min) {
+    int temp=this.num_sort.get(current_elem);
+    this.num_sort.set(current_elem, this.num_sort.get(new_min));
+    this.num_sort.set(new_min, temp);
+
+}
+
+
+
+
+public static void main(String[] args) {
+    // TODO Auto-generated method stub
+    System.out.println("Enter how many numbers you want to sort");
+
+    Scanner in=new Scanner(System.in);
+    int num_count=in.nextInt();
+    System.out.println("Enter the numbers you want to sort");
+    ArrayList<Integer> userlist=new ArrayList<>();
+
+    for(int i=0;i<num_count;i++) {
+        userlist.add(in.nextInt());
+    }
+
+
+
+    SelectionSort s=new SelectionSort(userlist);
+
+}
+}

@@ -1,0 +1,23 @@
+package org.acc.test.datatypes;
+
+public class DataTypes {
+	public static void main(String[] args) {
+		byte date = 16;
+		System.out.println("Today's date:" + date);
+		short year = 2020;
+		System.out.println("Year:" + year);
+		int pincode = 600063;
+		System.out.println("Pincode:" + pincode);
+		long phoneNumber = 9876546789l;
+		System.out.println("Phone number:" + phoneNumber);
+		float salary = 2500.00f;
+		System.out.println("Salary:" + salary);
+		double d = 2358.90;
+		char gender = 'F';
+		System.out.println("Gender:" + gender);
+		String email = "kavya@gmail.com";
+		System.out.println("Email:" + email);
+		boolean employed = true;
+		System.out.println("Employed:" + employed);
+	}
+}

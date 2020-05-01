@@ -1,0 +1,33 @@
+package org.edu;
+
+public class Arts extends Education {
+@Override
+public void ug() {
+	System.out.println("Arts UG courses");
+}
+public void bSc() {
+	System.out.println("BSC");
+}
+public void bEd() {
+	System.out.println("BEd");
+}
+public void ba() {
+	System.out.println("BA");
+}
+@Override
+	public void pg() {
+		System.out.println("Arts PG courses");
+	}
+public void bBa() {
+	System.out.println("BBA");
+}
+public static void main(String[] args) {
+	Arts a = new Arts();
+	a.ug();
+	a.bSc();
+	a.bEd();
+	a.ba();
+	a.pg();
+	a.bBa();
+}
+}

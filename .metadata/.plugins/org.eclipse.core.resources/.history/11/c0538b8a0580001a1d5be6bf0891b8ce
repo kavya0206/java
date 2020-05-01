@@ -1,0 +1,36 @@
+package arraysum;
+
+import java.io.*;
+import java.math.*;
+import java.util.*;
+
+public class Swap {
+	static int minimumSwaps(List<Integer> l1[]) {
+		int swap = 0;
+		boolean visited[] = new boolean[l1.length];
+		for (int i = 0; i < l1.length; i++) {
+			int j = i, cycle = 0;
+
+			while (!visited[j]) {
+				visited[j] = true;
+		j = l1[j]- 1;
+				cycle++;
+			}
+
+			if (cycle != 0)
+				swap += cycle - 1;
+		}
+		return swap;
+	}
+
+	public static void main(String[] args) {
+		List<Integer> l1 = new ArrayList<>();
+		l1.add(1);
+		l1.add(4);
+		l1.add(2);
+		l1.add(3);
+		int res = minimumSwaps(l1);
+		System.out.println("No.of Swaps:"+res);
+
+	}
+}

@@ -1,0 +1,55 @@
+package arraysum;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class minimumSwap {
+private ArrayList<Integer> num=new ArrayList<>();
+
+public static int minimumSwap(ArrayList<Integer> Probablity) {
+    num=Probablity;
+    sort_select();
+
+}
+public static void sort_select() {
+
+    for(int i=0;i<this.num.size();i++) {
+        int min=this.num.get(i);
+        int min_index=i;
+     for(int j=i+1;j<this.num.size();j++) {
+            if(this.num.get(j)<min) {
+                min=this.num.get(j);
+                min_index=j;
+
+            }
+        }
+        if(i!=min_index) {
+           exchange(i,min_index);
+        }
+    }
+    System.out.println("Sorted list are : ");
+    for(int x:this.num) {
+        System.out.print(x+" ");
+    }
+}
+
+public void exchange(int current_elem,int new_min) {
+    int temp=this.num.get(current_elem);
+    this.num.set(current_elem, this.num.get(new_min));
+    this.num.set(new_min, temp);
+
+}
+
+public static void main(String[] args) {
+    System.out.println("Enter size of list");
+    Scanner in=new Scanner(System.in);
+    int num_count=in.nextInt();
+    System.out.println("Enter the numbers in list");
+    ArrayList<Integer> userlist=new ArrayList<>();
+
+    for(int i=0;i<num_count;i++) {
+        userlist.add(in.nextInt());
+    }
+    minimumSwap s=new minimumSwap(userlist);
+
+}
+}
